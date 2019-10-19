@@ -1,0 +1,26 @@
+<p>server-example works!</p>
+<ul class="meal-list">
+  <li
+    *ngFor="
+      let meal of asyncMeals
+        | async
+        | paginate
+          : {
+              id: 'server',
+              itemsPerPage: 2,
+              currentPage: p,
+              totalItems: total
+            }
+    "
+  >
+    {{ meal }}
+  </li>
+</ul>
+
+<div class="has-text-centered">
+  <div class="spinner" [ngClass]="{ hidden: !loading }"></div>
+  <pagination-controls
+    (pageChange)="getPage($event)"
+    id="server"
+  ></pagination-controls>
+</div>

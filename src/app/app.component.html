@@ -1,0 +1,40 @@
+<!-- <router-outlet></router-outlet> -->
+
+<!-- server paging..-->
+<h1>Server side paging</h1>
+<server-example [meals]="meals"></server-example>
+
+<!-- Local Paging -->
+<h1>Client side paging</h1>
+<div class="tab-content" id="nav-tabContent">
+  <div
+    class="tab-pane fade show active"
+    id="myPatients"
+    role="tabpanel"
+    aria-labelledby="nav-home-tab"
+  >
+    <div class="gridTable searchListPatient">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Last Name</th>
+            <th>First Name</th>
+            <th>Date of Birth</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            [routerLink]="['/patient']"
+            *ngFor="let data of patients | paginate: config"
+          >
+            <td>{{ data.fname }}</td>
+            <td>{{ data.lname }}</td>
+            <td>{{ data.dob }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <custom-template [config]="config"></custom-template>
+  </div>
+</div>
