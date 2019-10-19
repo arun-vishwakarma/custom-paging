@@ -1,4 +1,5 @@
-<pagination-template #p="paginationApi" [maxSize]="config.maxSize" [id]="config.id" (pageChange)="config.currentPage = $event">
+<!-- (pageChange)="config.currentPage = $event" -->
+<pagination-template #p="paginationApi" [maxSize]="config.maxSize" [id]="config.id" (pageChange)="pageChange.emit($event)">
         <div class="paginationBlock">
             <nav aria-label="Page navigation example">
                 <ul class="pagination">

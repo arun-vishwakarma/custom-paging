@@ -32,13 +32,17 @@ export class AppComponent implements OnInit {
   ];
 
   patients = [];
+  
   public config: any = {
     id: "custom",
     itemsPerPage: 3,
     currentPage: 1,
-    maxSize: 9
+    maxSize: 5
   };
 
+  /* getPage(pageN:number){
+    this.config.currentPage = pageN;
+  } */
   //@Input() maxSize: number = 3;
 
   ngOnInit() {

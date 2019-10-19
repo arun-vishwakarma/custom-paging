@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@angular/core"
+import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, EventEmitter} from "@angular/core"
 //import {PaginationInstance} from 'ngx-pagination';;
 
 @Component({
@@ -10,6 +10,8 @@ import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from "@ang
 })
 export class CustomTemplateComponent {
     @Input('config') config: any[] = [];
+    
+    @Output() pageChange = new EventEmitter();
 
     //@Input('configServer') configServer: any[] = [];
     /* public config: any = {

@@ -14,7 +14,19 @@ interface IServerResponse {
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ServerExampleComponent {
+
   @Input("meals") meals: string[] = [];
+
+  //@Input('config') config: any[] = [];
+
+  public config: any = {
+    id: "server",
+    itemsPerPage: 2,
+    currentPage: 1,
+    maxSize: 10,
+    totalItems: 20
+  };
+
   asyncMeals: Observable<string[]>;
   p: number = 1;
   total: number;
@@ -31,6 +43,13 @@ export class ServerExampleComponent {
         this.total = res.total;
         this.p = page;
         this.loading = false;
+
+
+        //my new code
+        this.config.currentPage = page;
+        this.config.total = res.total;
+
+
       }),
       map(res => res.items)
     );
@@ -48,12 +67,10 @@ function serverCall(
   const start = (page - 1) * perPage;
   const end = start + perPage;
 
-  console.log(start, end);
-
+/*   console.log(start, end);
   console.log(meals);
-
   console.log(meals.slice(start, end));
-
+ */
   return of({
     items: meals.slice(start, end),
     total: 20

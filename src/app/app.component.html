@@ -35,6 +35,19 @@
       </table>
     </div>
 
-    <custom-template [config]="config"></custom-template>
+    <custom-template [config]="config" (pageChange)="config.currentPage=$event"></custom-template>
+
+
+    <!-- 
+      (pageChange)="config.currentPage=$event"  (i.e fine)
+                  OR
+      (pageChange)="getPage($event)"  And in ts file define below method
+
+        getPage(pageN:number){
+          this.config.currentPage = pageN;
+        }
+    -->
+
+
   </div>
 </div>
