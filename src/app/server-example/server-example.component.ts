@@ -19,6 +19,7 @@ export class ServerExampleComponent {
 
   //@Input('config') config: any[] = [];
 
+  //can assign config values inside ngOnInit or where it's required (after getting data from API)
   public config: any = {
     id: "server",
     itemsPerPage: 2,
