@@ -9,7 +9,8 @@ import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, Ev
     styleUrls: ['./custom-template.component.css']
 })
 export class CustomTemplateComponent {
-    @Input('config') config: any[] = [];
+    //@Input('config') config: any[] = [];  //it will show error in template Property id does not exist on type any
+     @Input('config') config: any;
     
     @Output() pageChange = new EventEmitter();
 
